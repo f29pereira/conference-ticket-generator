@@ -28,10 +28,58 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   font-family: var(--font-inconsolata);
+  color: var(--neutral-0);
   -webkit-font-smoothing: antialiased; /*smooths the edges of fonts on Chrome, Safari, Edge*/
   -moz-osx-font-smoothing: grayscale; /*smooths the edges of fonts Firefox on macOS*/
 }
 
+/*Background*/
+.bg {
+  position: relative;
+  background-image: url("/images/background/background-mobile.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  min-height: 100vh;
+  height: 100%;
+}
+
 label {
-  font-size: 1.25rem; /*20px*/
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+input,
+button {
+  cursor: pointer;
+}
+
+label,
+input,
+button {
+  width: 100%;
+}
+
+/*Centered flex row container*/
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 48rem /*768px*/) {
+  /*Background*/
+  .bg {
+    background-image: url("/images/background/background-tablet.png");
+  }
+}
+
+@media (min-width: 62.5rem /*1000px*/) {
+  /*Background*/
+  .bg {
+    background-image: url("/images/background/background-desktop.png");
+  }
+
+  label {
+    font-size: 1.25rem; /*20px*/
+  }
 }

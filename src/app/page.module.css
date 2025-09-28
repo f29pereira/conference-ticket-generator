@@ -1,3 +1,9 @@
 /*
 CSS Module for Home component
 */
+
+.sectionCont {
+  padding-bottom: 6rem;
+  position: relative;
+  z-index: 1;
+}

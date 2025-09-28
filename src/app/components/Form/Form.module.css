@@ -1,0 +1,177 @@
+/*
+CSS Module for Form component
+*/
+
+/*Image logo*/
+.logoImg {
+  display: block;
+  width: 10rem;
+  height: 2rem;
+  margin: 2rem auto;
+}
+
+/*Header container*/
+.headerCont {
+  text-align: center;
+  max-width: 18.75rem; /*300px*/
+  margin: 0 auto;
+}
+
+/*Form title*/
+.title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/*Form text description*/
+.text {
+  color: var(--neutral-300);
+}
+
+/*Form container*/
+.formCont {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 1rem;
+  margin-top: 1rem;
+}
+
+/*input labels*/
+.label {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/*Upload avatar custom input container*/
+.avatarCont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent;
+  border: 1px dashed var(--neutral-300);
+  cursor: pointer;
+  border-radius: 12px;
+  padding: 1rem 0;
+  margin-top: 0.5rem;
+}
+
+.avatarCont:hover {
+  background-color: var(--neutral-700);
+}
+
+/*Upload icon container*/
+.uploadIconCont {
+  display: flex;
+  justify-content: center;
+  background-color: var(--neutral-700);
+  border: 1px solid transparent; /*prevent layout shift on hover*/
+  border-radius: 12px;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.avatarCont:hover > .uploadIconCont {
+  border: 1px solid var(--neutral-500);
+}
+
+/*Upload text*/
+.uploadText {
+  color: var(--neutral-300);
+}
+
+/*Avatar photo input*/
+.avatarInput {
+  display: none; /*Hide default styling*/
+}
+
+/*Avatar photo info container*/
+.avatarInfoCont {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--neutral-300);
+  margin: 0.5rem 0 1rem 0;
+}
+
+/*Avatar photo info text*/
+.infoText {
+  font-size: 0.8rem;
+}
+
+/*Full name, Email and GitHub username input fields*/
+.input {
+  background-color: transparent;
+  color: var(--neutral-300);
+  border: 1px solid var(--neutral-500);
+  border-radius: 12px;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.input:hover {
+  background-color: var(--neutral-700);
+}
+
+.input::placeholder {
+  color: var(--neutral-300);
+}
+
+/*Form submit button*/
+.submitBtn {
+  background-color: var(--orange-500);
+  color: var(--neutral-900);
+  font-weight: 700;
+  border: none;
+  border-bottom: 5px solid var(--orange-500);
+  border-radius: 12px;
+  padding: 1rem 0;
+  margin-top: 1rem;
+}
+
+.submitBtn:hover {
+  background-color: var(--orange-700);
+  border-bottom: 5px solid var(--orange-500);
+}
+
+@media (min-width: 62.5rem /*1000px*/) {
+  /*Header container*/
+  .headerCont {
+    max-width: 31.25rem; /*500px*/
+  }
+
+  /*Form title*/
+  .title {
+    font-size: 2.2rem;
+  }
+
+  /*Form container*/
+  .formCont {
+    padding: 0;
+    width: 30%;
+    margin: 2rem auto 0 auto;
+  }
+
+  .infoIcon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (min-width: 87.5rem /*1400px*/) {
+  /*Header container*/
+  .headerCont {
+    max-width: 37.5rem; /*600px*/
+  }
+
+  /*Form container*/
+  .formCont {
+    width: 20%;
+  }
+
+  /*Form title*/
+  .title {
+    font-size: 2.5rem;
+  }
+}
