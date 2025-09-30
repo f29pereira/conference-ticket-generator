@@ -36,3 +36,10 @@ CSS Module for InputMessage component
     height: 20px;
   }
 }
+
+@media (min-width: 87.5rem /*1400px*/) {
+  /*message*/
+  .text {
+    font-size: 1rem;
+  }
+}

@@ -39,8 +39,7 @@ CSS Module for Form component
 
 /*input labels*/
 .label {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
+  margin: 1rem 0 0.5rem 0;
 }
 
 /*Upload avatar custom input container*/
@@ -52,12 +51,20 @@ CSS Module for Form component
   border: 1px dashed var(--neutral-300);
   cursor: pointer;
   border-radius: 12px;
+  height: 7.1875rem; /*115px*/
   padding: 1rem 0;
   margin-top: 0.5rem;
 }
 
-.avatarCont:hover {
+/*When custom avatar input container is hovered or user avatar file exists*/
+.avatarCont:hover,
+.file {
   background-color: var(--neutral-700);
+}
+
+/*User file name container*/
+.fileNameCont {
+  height: 100%;
 }
 
 /*Upload icon container*/
@@ -85,21 +92,6 @@ CSS Module for Form component
   display: none; /*Hide default styling*/
 }
 
-/*Avatar photo info container*/
-.avatarInfoCont {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--neutral-300);
-  margin: 0.5rem 0 1rem 0;
-}
-
-/*Avatar photo info text*/
-.infoText {
-  font-size: 0.8rem;
-}
-
 /*Full name, Email and GitHub username input fields*/
 .input {
   background-color: transparent;
@@ -107,7 +99,6 @@ CSS Module for Form component
   border: 1px solid var(--neutral-500);
   border-radius: 12px;
   padding: 0.8rem;
-  margin-bottom: 1rem;
 }
 
 .input:hover {
@@ -116,6 +107,17 @@ CSS Module for Form component
 
 .input::placeholder {
   color: var(--neutral-300);
+}
+
+/*input info or error message container*/
+.inputMsgCont {
+  height: 1.25rem; /*20px*/
+  margin-top: 0.8rem;
+}
+
+/*input error border*/
+.error {
+  border-color: var(--orange-700);
 }
 
 /*Form submit button*/
@@ -152,26 +154,26 @@ CSS Module for Form component
     width: 30%;
     margin: 2rem auto 0 auto;
   }
-
-  .infoIcon {
-    width: 20px;
-    height: 20px;
-  }
 }
 
 @media (min-width: 87.5rem /*1400px*/) {
   /*Header container*/
   .headerCont {
-    max-width: 37.5rem; /*600px*/
+    max-width: 43.75rem; /*700px*/
   }
 
   /*Form container*/
   .formCont {
-    width: 20%;
+    width: 25%;
   }
 
   /*Form title*/
   .title {
-    font-size: 2.5rem;
+    font-size: 3rem;
+  }
+
+  /*Form text description*/
+  .text {
+    font-size: 1.2rem;
   }
 }
