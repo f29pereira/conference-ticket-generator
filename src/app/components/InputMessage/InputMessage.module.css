@@ -1,0 +1,38 @@
+/*
+CSS Module for InputMessage component
+*/
+
+.infoMsg {
+  color: var(--neutral-300);
+}
+
+.errorMsg {
+  color: var(--orange-700);
+}
+
+/*Input message container*/
+.msgCont {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/*Info icon svg*/
+.msgIcon {
+  width: 16px;
+  height: 16px;
+}
+
+/*message*/
+.text {
+  font-size: 0.8rem;
+}
+
+@media (min-width: 62.5rem /*1000px*/) {
+  /*Info icon svg*/
+  .msgIcon {
+    width: 20px;
+    height: 20px;
+  }
+}
