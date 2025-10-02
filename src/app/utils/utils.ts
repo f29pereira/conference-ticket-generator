@@ -1,14 +1,29 @@
-import type { FormError } from "../types";
+import type {
+  UnvalidatedFieldsTypes,
+  ValidatedFieldsTypes,
+  FormError,
+} from "../types";
+
+/**
+ * Type guard function: checks if the fields are the correct value type
+ */
+export const isFieldsTypeValid = (
+  fields: UnvalidatedFieldsTypes
+): fields is ValidatedFieldsTypes => {
+  return (
+    isFile(fields.avatar) &&
+    isString(fields.fullName) &&
+    isString(fields.email) &&
+    isString(fields.gitHub)
+  );
+};
 
 /**
  * Validates the form inputs and returns FormError object for the invalid fields
  */
-export const validateFormInputs = (
-  avatar: FormDataEntryValue | null,
-  fullName: FormDataEntryValue | null,
-  email: FormDataEntryValue | null,
-  gitHub: FormDataEntryValue | null
-) => {
+export const validateFieldsRules = (
+  fields: ValidatedFieldsTypes
+): FormError => {
   const newErrors: FormError = {
     avatar: "",
     fullName: "",
@@ -16,21 +31,15 @@ export const validateFormInputs = (
     gitHub: "",
   };
 
-  if (isFile(avatar)) {
-    newErrors.avatar = validateFile(avatar);
-  }
+  newErrors.avatar = validateFile(fields.avatar);
 
-  if (isString(fullName)) {
-    newErrors.fullName = validateFullName(fullName);
-  }
+  newErrors.fullName = validateFullName(fields.fullName);
 
-  if (isString(email) && isStringEmpty(email)) {
+  if (isStringEmpty(fields.email)) {
     newErrors.email = "Please enter a valid email";
   }
 
-  if (isString(gitHub)) {
-    newErrors.gitHub = validateGitHubUserName(gitHub);
-  }
+  newErrors.gitHub = validateGitHubUserName(fields.gitHub);
 
   return newErrors;
 };
@@ -74,6 +83,24 @@ const validateFile = (file: File): string => {
 };
 
 /**
+ * Converts a File to base64
+ */
+export const convertFile = (file: File): Promise<string> => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+
+    //reads the file and converts to base64
+    reader.readAsDataURL(file);
+
+    //file converted sucessfully - promise resolved
+    reader.onload = () => resolve(reader.result as string);
+
+    //throws error while reading the file - promise rejected
+    reader.onerror = (error) => reject(error);
+  });
+};
+
+/**
  * Validates the user full name input value and returns error message if invalid
  *
  * Valid if:
@@ -112,13 +139,6 @@ const validateGitHubUserName = (gitHubUserName: string): string => {
 };
 
 /**
- * Checks if FormDataEntry is of type string
- */
-const isString = (strValue: FormDataEntryValue | null): strValue is string => {
-  return typeof strValue === "string";
-};
-
-/**
  * Checks if file is empty
  */
 const isFileEmpty = (file: File): boolean => {
@@ -139,6 +159,13 @@ const isFileFormatValid = (file: File): boolean => {
  */
 const isFileLarge = (file: File): boolean => {
   return file.size > 500 * 1024;
+};
+
+/**
+ * Checks if FormDataEntry is of type string
+ */
+const isString = (strValue: FormDataEntryValue | null): strValue is string => {
+  return typeof strValue === "string";
 };
 
 /**

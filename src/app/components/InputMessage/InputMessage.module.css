@@ -14,7 +14,6 @@ CSS Module for InputMessage component
 .msgCont {
   display: flex;
   justify-content: flex-start;
-  align-items: center;
   gap: 0.5rem;
 }
 
@@ -27,6 +26,7 @@ CSS Module for InputMessage component
 /*message*/
 .text {
   font-size: 0.8rem;
+  flex: 1;
 }
 
 @media (min-width: 62.5rem /*1000px*/) {

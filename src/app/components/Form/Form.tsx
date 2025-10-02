@@ -4,8 +4,16 @@ import { useState, useRef } from "react";
 import styles from "./Form.module.css";
 import Image from "next/image";
 import type { FormError } from "@/app/types";
-import { validateFormInputs, isErrorObjectEmpty } from "@/app/utils/utils";
+import {
+  isFieldsTypeValid,
+  validateFieldsRules,
+  isErrorObjectEmpty,
+  convertFile,
+} from "@/app/utils/utils";
 import InputMessage from "../InputMessage/InputMessage";
+import { useTicket } from "../hooks/useTicket";
+import type { UnvalidatedFieldsTypes, ValidatedFieldsTypes } from "@/app/types";
+import { useRouter } from "next/navigation";
 type ChangeEvent = React.ChangeEvent<HTMLInputElement>;
 
 /**
@@ -17,6 +25,9 @@ type ChangeEvent = React.ChangeEvent<HTMLInputElement>;
  * - Generate ticket submit button
  */
 export default function Form() {
+  //TicketContext
+  const { setTicket } = useTicket();
+
   //user avatar file state
   const [file, setFile] = useState<File | null>(null);
 
@@ -30,6 +41,9 @@ export default function Form() {
 
   //user avatar file input ref
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  //client side navigation
+  const router = useRouter();
 
   /**
    * Opens choose file pop up when pressing: "Enter" or "Space bar"
@@ -56,23 +70,45 @@ export default function Form() {
   /**
    * Submits the form to generate the user ticket
    */
-  const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
+  const submitForm = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
+    try {
+      const formData = new FormData(e.currentTarget);
 
-    const avatar = formData.get("avatar");
-    const fullName = formData.get("fullName");
-    const email = formData.get("email");
-    const gitHub = formData.get("gitHub");
+      const fields: UnvalidatedFieldsTypes = {
+        avatar: formData.get("avatar"),
+        fullName: formData.get("fullName"),
+        email: formData.get("email"),
+        gitHub: formData.get("gitHub"),
+      };
 
-    const newErrors = validateFormInputs(avatar, fullName, email, gitHub);
+      if (!isFieldsTypeValid(fields)) {
+        return;
+      }
 
-    if (!isErrorObjectEmpty(newErrors)) {
-      console.log("Error found, enter line 70");
-      setError(newErrors); //update error state
-    } else {
-      //TO DO - redirect user to ticket page
-      console.log("FORM is OK, generating ticket...");
+      const { avatar, fullName, email, gitHub } = fields;
+
+      const newErrors = validateFieldsRules(fields);
+
+      if (!isErrorObjectEmpty(newErrors)) {
+        setError(newErrors); //update error state
+      } else {
+        //convert file
+        const convertedFile = await convertFile(avatar);
+
+        setTicket({
+          creationDate: "Jan 31, 2025",
+          confLocation: "Austin, TX",
+          avatar: convertedFile,
+          fullName: fullName,
+          email: email,
+          gitHub: gitHub,
+        });
+
+        router.push("/ticket");
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
   return (
