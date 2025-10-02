@@ -1,17 +1,12 @@
 "use client"; /*Client Component*/
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import styles from "./Form.module.css";
 import Image from "next/image";
 import type { FormError } from "@/app/types";
-import {
-  isFile,
-  validateFile,
-  isString,
-  isStringEmpty,
-  isAtSymbolPresent,
-} from "@/app/utils/utils";
+import { validateFormInputs, isErrorObjectEmpty } from "@/app/utils/utils";
 import InputMessage from "../InputMessage/InputMessage";
+type ChangeEvent = React.ChangeEvent<HTMLInputElement>;
 
 /**
  * Renders the generate ticket form with:
@@ -22,8 +17,10 @@ import InputMessage from "../InputMessage/InputMessage";
  * - Generate ticket submit button
  */
 export default function Form() {
+  //user avatar file state
   const [file, setFile] = useState<File | null>(null);
 
+  //form error messages state
   const [error, setError] = useState<FormError>({
     avatar: "",
     fullName: "",
@@ -31,10 +28,23 @@ export default function Form() {
     gitHub: "",
   });
 
+  //user avatar file input ref
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  /**
+   * Opens choose file pop up when pressing: "Enter" or "Space bar"
+   */
+  const openChooseFile = (e: React.KeyboardEvent<HTMLLabelElement>) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault(); //prevent scroll when pressing "Space bar"
+      fileInputRef.current?.click();
+    }
+  };
+
   /**
    * Updates avatar custom input container with user file
    */
-  const updateFile = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const updateFile = (e: ChangeEvent) => {
     const input = e.currentTarget as HTMLInputElement;
     const file = input.files?.[0];
 
@@ -55,37 +65,15 @@ export default function Form() {
     const email = formData.get("email");
     const gitHub = formData.get("gitHub");
 
-    const newErrors: FormError = {
-      avatar: "",
-      fullName: "",
-      email: "",
-      gitHub: "",
-    };
+    const newErrors = validateFormInputs(avatar, fullName, email, gitHub);
 
-    if (isFile(avatar)) {
-      newErrors.avatar = validateFile(avatar);
+    if (!isErrorObjectEmpty(newErrors)) {
+      console.log("Error found, enter line 70");
+      setError(newErrors); //update error state
+    } else {
+      //TO DO - redirect user to ticket page
+      console.log("FORM is OK, generating ticket...");
     }
-
-    if (isString(fullName) && isStringEmpty(fullName)) {
-      newErrors.fullName = "Please enter a valid name";
-    }
-
-    if (isString(email) && isStringEmpty(email)) {
-      newErrors.email = "Please enter a valid email";
-    }
-
-    if (
-      isString(gitHub) &&
-      (isStringEmpty(gitHub) || !isAtSymbolPresent(gitHub))
-    ) {
-      newErrors.gitHub = "Please enter a valid GitHub username";
-    }
-
-    setError(newErrors);
-
-    //TO DO - check if newErrors has any error message:
-    // if true -> return;
-    // false - redirect user to ticket page
   };
   return (
     <div>
@@ -109,7 +97,12 @@ export default function Form() {
 
       <form className={styles.formCont} onSubmit={submitForm}>
         {/*Upload avatar*/}
-        <label htmlFor="avatar" className={styles.label} tabIndex={0}>
+        <label
+          htmlFor="avatar"
+          className={styles.label}
+          tabIndex={0}
+          onKeyDown={openChooseFile}
+        >
           Upload Avatar
           {/*Upload avatar custom input*/}
           <div className={`${styles.avatarCont} ${file ? styles.file : ""}`}>
@@ -140,6 +133,7 @@ export default function Form() {
             name="avatar"
             className={styles.avatarInput}
             onChange={updateFile}
+            ref={fileInputRef}
           />
         </label>
 
@@ -163,6 +157,7 @@ export default function Form() {
           type="text"
           id="name"
           name="fullName"
+          autoComplete="name"
           className={`${styles.input} ${error?.fullName ? styles.error : null}`}
         />
 
@@ -182,6 +177,7 @@ export default function Form() {
           name="email"
           id="email"
           placeholder="example@email.com"
+          autoComplete="email"
           className={`${styles.input} ${error?.email ? styles.error : null}`}
         />
         {/*Email address - error message*/}
@@ -204,7 +200,7 @@ export default function Form() {
         />
 
         {/*GitHub username - error message*/}
-        <div className={styles.inputMsgCont}>
+        <div className={styles.gitInputMsgCont}>
           {error?.gitHub ? (
             <InputMessage isError={true} message={error.gitHub} />
           ) : null}

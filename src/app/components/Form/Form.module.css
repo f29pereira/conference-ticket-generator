@@ -112,6 +112,15 @@ CSS Module for Form component
 /*input info or error message container*/
 .inputMsgCont {
   height: 1.25rem; /*20px*/
+}
+
+/*gitHub username error message container*/
+.gitInputMsgCont {
+  height: 3.125rem; /*50px*/
+}
+
+.inputMsgCont,
+.gitInputMsgCont {
   margin-top: 0.8rem;
 }
 
