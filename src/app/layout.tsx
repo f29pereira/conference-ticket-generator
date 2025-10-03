@@ -3,6 +3,8 @@ import { Inconsolata } from "next/font/google";
 import "./globals.css";
 import Pattern from "./components/Pattern/Pattern";
 import TicketProvider from "./components/providers/TicketProvider";
+import styles from "./layout.module.css";
+import Image from "next/image";
 
 const inconsolata = Inconsolata({
   variable: "--font-inconsolata",
@@ -42,6 +44,16 @@ export default function RootLayout({
             imgPath="/images/patterns/pattern-squiggly-line-bottom-desktop.svg"
             imgStyling="squigglyLineBottomDesktop"
           />
+
+          {/*Coding Conference Logo*/}
+          <Image
+            src="/images/logo/logo-full.svg"
+            alt="Coding Conference Logo"
+            width={209}
+            height={30}
+            className={styles.logoImg}
+          />
+
           {children}
         </body>
       </TicketProvider>

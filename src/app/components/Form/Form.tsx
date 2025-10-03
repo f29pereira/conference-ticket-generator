@@ -113,14 +113,6 @@ export default function Form() {
   };
   return (
     <div>
-      <Image
-        src="/images/logo/logo-full.svg"
-        alt="Coding Conference Logo"
-        width={209}
-        height={30}
-        className={styles.logoImg}
-      />
-
       <div className={styles.headerCont}>
         <h1 className={styles.title}>
           Your Jorney to Coding Conf 2025 Starts Here!

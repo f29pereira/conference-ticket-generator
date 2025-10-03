@@ -2,14 +2,6 @@
 CSS Module for Form component
 */
 
-/*Image logo*/
-.logoImg {
-  display: block;
-  width: 10rem;
-  height: 2rem;
-  margin: 2rem auto;
-}
-
 /*Header container*/
 .headerCont {
   text-align: center;
