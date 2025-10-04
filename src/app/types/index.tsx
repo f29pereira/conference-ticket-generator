@@ -62,16 +62,16 @@ export type InputMessageProps = {
 
 /**
  * Ticket Type
- * @property creationDate - ticket creation date
- * @property confLocation - conference location
+ * @property id - ticket id
+ * @property confInfo - ticket creation date / location
  * @property avatar - user avatar
  * @property fullName - user full name
  * @property email - user email
  * @property gitHub - user GitHub
  */
 export type Ticket = {
-  creationDate: string;
-  confLocation: string;
+  id: string;
+  confInfo: string;
   avatar: string;
   fullName: string;
   email: string;

@@ -3,6 +3,7 @@
 import styles from "./page.module.css";
 import { useTicket } from "../components/hooks/useTicket";
 import Image from "next/image";
+import Pattern from "../components/Pattern/Pattern";
 
 /**
  * Renders a conference ticket page with:
@@ -21,7 +22,7 @@ export default function Ticket() {
       </h1>
 
       <p className={styles.text}>
-        We&apos;ve emailed your ticket to
+        We&apos;ve emailed your ticket to <br />
         <span className={styles.email}>{ticket?.email}</span> and will send
         updates in the run up to the event.
       </p>
@@ -29,6 +30,7 @@ export default function Ticket() {
       {/*Ticket*/}
 
       {/*TO DO - Add Accessibility title for the ticket*/}
+      <h2 className="sr-only">User Ticket</h2>
 
       <div className={styles.ticketCont}>
         <div className={styles.ticket}>
@@ -43,14 +45,10 @@ export default function Ticket() {
             />
 
             <div className={styles.confIntoCont}>
-              <h2>Coding Conf</h2>
+              <h2 className={styles.codingConfTitle}>Coding Conf</h2>
 
               {/*Conference date and location*/}
-              <p className={styles.confLocationCont}>
-                {ticket?.creationDate}
-                <span>/</span>
-                {ticket?.confLocation}
-              </p>
+              <p className={styles.confLocationCont}>{ticket?.confInfo}</p>
             </div>
           </div>
 
@@ -76,14 +74,27 @@ export default function Ticket() {
                   alt=""
                   width={20}
                   height={20}
+                  className={styles.gitHubIcon}
                 />
                 <span>{ticket?.gitHub}</span>
               </div>
             </div>
           </div>
 
-          <span className={styles.ticketCode}>#016009</span>
+          <span className={styles.ticketCode}>#{ticket?.id}</span>
         </div>
+
+        {/*Full circle for mobile/tablet only screens*/}
+        <Pattern
+          imgPath="/images/patterns/pattern-circle.svg"
+          imgStyling="circleBottomRight"
+        />
+
+        {/*Half right circle for desktop only screens*/}
+        <Pattern
+          imgPath="/images/patterns/pattern-circle.svg"
+          imgStyling="circleRightHalf"
+        />
       </div>
     </section>
   );

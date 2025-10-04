@@ -29,10 +29,10 @@
     var(--orange-500) 11%,
     var(--neutral-0) 55%
   );
-  -webkit-background-clip: text; /* for Safari/Chrome */
-  -webkit-text-fill-color: transparent; /* makes the text transparent so gradient shows */
+  -webkit-background-clip: text; /*for Safari/Chrome*/
+  -webkit-text-fill-color: transparent;
   background-clip: text;
-  color: transparent; /* fallback for other browsers */
+  color: transparent; /*fallback for other browsers */
   margin-left: 0.5rem;
 }
 
@@ -44,7 +44,9 @@
 
 /*ticket container*/
 .ticketCont {
+  position: relative;
   padding: 0 1rem;
+  margin-bottom: 2rem;
 }
 
 /*ticket background*/
@@ -86,7 +88,7 @@
 .avatar {
   width: 50px;
   height: 50px;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 /*user full name container, shows ... if full name width is bigger than defined width*/
@@ -119,6 +121,14 @@
   color: var(--neutral-500);
 }
 
+.circleBottomRight {
+  position: absolute;
+  z-index: 1;
+  top: 1rem;
+  height: 50px;
+  width: 50px;
+}
+
 @media (min-width: 62.5rem /*1000px*/) {
   /*page title*/
   .title {
@@ -136,6 +146,7 @@
   /*ticket container*/
   .ticketCont {
     width: 25rem; /*400px*/
+    padding: 0;
     margin: 0 auto;
   }
 
@@ -157,5 +168,58 @@
 }
 
 @media (min-width: 87.5rem /*1400px*/) {
-  /*TO DO - add styling*/
+  /*page title*/
+  .title {
+    font-size: 3rem;
+    max-width: 43.75rem; /*700px*/
+  }
+
+  /*ticket container*/
+  .ticketCont {
+    width: 34.375rem; /*550px*/
+  }
+
+  /*coding conference ticket logo*/
+  .logoImg {
+    width: 30px;
+    height: 30px;
+  }
+
+  /*coding Conf ticket title*/
+  .codingConfTitle {
+    font-size: 2rem;
+  }
+
+  /*ticket conference date and location container*/
+  .confLocationCont {
+    font-size: 1rem;
+  }
+
+  /*user avatar image */
+  .avatar {
+    width: 65px;
+    height: 65px;
+  }
+
+  /*user full name container, shows ... if full name width is bigger than defined width*/
+  .fullNameCont {
+    width: 17.5rem; /*280px*/
+    font-size: 1.5rem;
+  }
+
+  /*gitHub username container*/
+  .gitHubCont {
+    font-size: 1rem;
+  }
+
+  /*gitHub icon*/
+  .gitHubIcon {
+    width: 25px;
+    height: 25px;
+  }
+
+  /*ticket code*/
+  .ticketCode {
+    font-size: 1.5rem;
+  }
 }

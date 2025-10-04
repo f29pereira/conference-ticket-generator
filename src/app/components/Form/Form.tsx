@@ -97,8 +97,8 @@ export default function Form() {
         const convertedFile = await convertFile(avatar);
 
         setTicket({
-          creationDate: "Jan 31, 2025",
-          confLocation: "Austin, TX",
+          id: "016009",
+          confInfo: "Jan 31, 2025 / Austin, TX",
           avatar: convertedFile,
           fullName: fullName,
           email: email,
