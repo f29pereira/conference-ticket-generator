@@ -28,19 +28,41 @@ CSS Module for Pattern component
   width: 140px;
 }
 
+/*Pattern: circle displayed on bottom right of the page used by Form component*/
+.circleBottomRightForm {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  bottom: 0;
+  right: -55px;
+  height: 110px;
+  width: 110px;
+}
+
 /*Pattern: circle displayed on bottom right of the page*/
 .circleBottomRight {
   position: absolute;
-  bottom: 250px;
+  z-index: 1;
+  top: 100%;
+  transform: translateY(50%); /*push 55px down*/
   right: -50px;
   height: 110px;
   width: 110px;
 }
 
-/*Pattern: squiggly line displayed on the bottom of the page for tablet and mobile*/
+/*Pattern: half circle displayed on the right side of ticket used by Ticket component*/
+.circleRightHalf {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  clip-path: inset(0 0 0 50%); /*removes circle left half*/
+  height: 150px;
+  width: 150px;
+}
+
+/*Pattern: squiggly line displayed on the bottom left of the page for mobile/tablet screens*/
 .squigglyLineBottom {
   position: absolute;
-  left: 0;
   bottom: 0;
   height: 180px;
 }
@@ -72,8 +94,62 @@ CSS Module for Pattern component
 
   /*Pattern: circle displayed on bottom right of the page*/
   .circleBottomRight {
-    bottom: 310px;
-    right: 245px;
+    display: none;
+  }
+
+  /*Pattern: half circle displayed on the right side of ticket for desktop screens*/
+  .circleRightHalf {
+    display: unset;
+    top: 50%;
+    right: -75px; /*half of circleRightHalf width*/
+    transform: translateY(-50%);
+  }
+}
+
+@media (min-width: 1400px) {
+  /*Pattern: circle displayed on top left of the page*/
+  .circleTopLeft {
+    top: -60px;
+    left: 130px;
+  }
+
+  /*Pattern: circle displayed on top right of the page*/
+  .squigglyLineTop {
+    top: 30px;
+    width: 446px;
+  }
+
+  /*Pattern: circle displayed on bottom right of the page*/
+  .circleBottomRight {
+    right: 610px;
+    bottom: 350px;
+  }
+
+  .circleTopLeft,
+  .circleBottomRight {
+    height: 165px;
+    width: 165px;
+  }
+
+  /*Pattern: circle displayed on bottom right of the page used by Form component*/
+  .circleBottomRightForm {
+    top: 50%;
+    transform: translateY(-50%);
+    right: -140px;
+    height: 150px;
+    width: 150px;
+  }
+
+  /*Pattern: half circle displayed on the right side of ticket for desktop screens*/
+  .circleRightHalf {
+    width: 200px;
+    height: 200px;
+    right: -100px; /*half of circleRightHalf width*/
+  }
+
+  /*Pattern: squiggly line displayed on the bottom left of the page for mobile/tablet screens*/
+  .squigglyLineBottom {
+    display: none;
   }
 
   /*Pattern: squiggly line displayed on the bottom of the page for desktop*/
@@ -82,43 +158,6 @@ CSS Module for Pattern component
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 650px;
-    height: 420px;
-  }
-
-  /*Pattern: squiggly line displayed on the bottom of the page for tablet and mobile*/
-  .squigglyLineBottom {
-    display: none;
-  }
-}
-
-@media (min-width: 1400px) {
-  /*Pattern: circle displayed on top left of the page*/
-  .circleTopLeft {
-    top: -80px;
-    left: 130px;
-    height: 210px;
-    width: 210px;
-  }
-
-  /*Pattern: circle displayed on top right of the page*/
-  .squigglyLineTop {
-    top: 30px;
-    right: 0;
-    width: 446px;
-  }
-
-  /*Pattern: circle displayed on bottom right of the page*/
-  .circleBottomRight {
-    right: 650px;
-    bottom: 430px;
-    height: 210px;
-    width: 210px;
-  }
-
-  /*Pattern: squiggly line displayed on the bottom of the page for desktop*/
-  .squigglyLineBottomDesktop {
-    width: 850px;
-    height: 400px;
+    max-height: 350px;
   }
 }

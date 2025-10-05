@@ -1,7 +1,6 @@
 /*
 * CSS Module for Ticket component
 */
-
 /*page title*/
 .title {
   font-size: 1.5rem;
@@ -14,7 +13,7 @@
   color: var(--neutral-300);
   font-size: 1.2rem;
   line-height: 1.2;
-  margin: 1.5rem 0 4rem 0;
+  margin: 1.5rem auto 4rem;
 }
 
 .title,
@@ -46,15 +45,15 @@
 .ticketCont {
   position: relative;
   padding: 0 1rem;
-  margin-bottom: 2rem;
 }
 
-/*ticket background*/
+/*ticket*/
 .ticket {
   position: relative;
   background-image: url("/images/patterns/pattern-ticket.svg");
   background-repeat: no-repeat;
   background-size: cover;
+  aspect-ratio: 15 / 7;
   padding: 1.2rem;
 }
 
@@ -80,6 +79,8 @@
 
 /*user information container*/
 .userInfoCont {
+  position: absolute;
+  bottom: 1.2rem; /*same padding as .ticket*/
   display: flex;
   gap: 1rem;
 }
@@ -129,6 +130,19 @@
   width: 50px;
 }
 
+@media (min-width: 48rem /*768px*/) {
+  /*ticket container*/
+  .ticketCont {
+    padding: 0;
+  }
+
+  /*ticket*/
+  .ticket {
+    width: 60%;
+    margin: 0 auto;
+  }
+}
+
 @media (min-width: 62.5rem /*1000px*/) {
   /*page title*/
   .title {
@@ -139,31 +153,22 @@
   /*user text*/
   .text {
     max-width: 28.125rem; /*450px*/
-    margin-left: auto;
-    margin-right: auto;
   }
 
   /*ticket container*/
   .ticketCont {
     width: 25rem; /*400px*/
-    padding: 0;
     margin: 0 auto;
   }
 
-  /*ticket background*/
+  /*ticket*/
   .ticket {
-    aspect-ratio: 15 / 7;
+    width: 100%;
   }
 
   /*ticket title container*/
   .titleCont {
     margin-bottom: 2rem;
-  }
-
-  /*user information container*/
-  .userInfoCont {
-    position: absolute;
-    bottom: 1.2rem; /*same padding as .ticket*/
   }
 }
 

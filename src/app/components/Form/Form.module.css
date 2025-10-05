@@ -101,6 +101,12 @@ CSS Module for Form component
   color: var(--neutral-300);
 }
 
+/*Full name input*/
+.fullNameCont {
+  position: relative;
+  width: 100%;
+}
+
 /*input info or error message container*/
 .inputMsgCont {
   height: 1.25rem; /*20px*/
@@ -130,7 +136,6 @@ CSS Module for Form component
   border-bottom: 5px solid var(--orange-500);
   border-radius: 12px;
   padding: 1rem 0;
-  margin-top: 1rem;
 }
 
 .submitBtn:hover {
@@ -152,7 +157,7 @@ CSS Module for Form component
   /*Form container*/
   .formCont {
     padding: 0;
-    width: 30%;
+    width: 40%;
     margin: 2rem auto 0 auto;
   }
 }

@@ -14,6 +14,7 @@ import InputMessage from "../InputMessage/InputMessage";
 import { useTicket } from "../hooks/useTicket";
 import type { UnvalidatedFieldsTypes, ValidatedFieldsTypes } from "@/app/types";
 import { useRouter } from "next/navigation";
+import Pattern from "../Pattern/Pattern";
 type ChangeEvent = React.ChangeEvent<HTMLInputElement>;
 
 /**
@@ -181,13 +182,23 @@ export default function Form() {
         <label htmlFor="name" className={styles.label}>
           Full name
         </label>
-        <input
-          type="text"
-          id="name"
-          name="fullName"
-          autoComplete="name"
-          className={`${styles.input} ${error?.fullName ? styles.error : null}`}
-        />
+
+        <div className={styles.fullNameCont}>
+          <input
+            type="text"
+            id="name"
+            name="fullName"
+            autoComplete="name"
+            className={`${styles.input} ${styles.fullNameCont} ${
+              error?.fullName ? styles.error : null
+            }`}
+          />
+
+          <Pattern
+            imgPath="/images/patterns/pattern-circle.svg"
+            imgStyling="circleBottomRightForm"
+          />
+        </div>
 
         {/*Full name - error message*/}
         <div className={styles.inputMsgCont}>

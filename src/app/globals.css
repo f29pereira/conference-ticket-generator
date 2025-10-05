@@ -38,9 +38,8 @@ body {
   position: relative;
   background-image: url("/images/background/background-mobile.png");
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
   min-height: 100vh;
-  height: 100%;
 }
 
 label {
@@ -57,6 +56,15 @@ label,
 input,
 button {
   width: 100%;
+}
+
+/*Available for screen readers*/
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 /*Centered flex row container*/

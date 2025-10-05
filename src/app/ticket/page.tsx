@@ -28,10 +28,7 @@ export default function Ticket() {
       </p>
 
       {/*Ticket*/}
-
-      {/*TO DO - Add Accessibility title for the ticket*/}
       <h2 className="sr-only">User Ticket</h2>
-
       <div className={styles.ticketCont}>
         <div className={styles.ticket}>
           <div className={styles.titleCont}>
