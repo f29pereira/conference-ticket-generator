@@ -21,21 +21,21 @@ export default function RootLayout({
       <TicketProvider>
         <body className={`bg ${inconsolata.variable} ${styles.bodyCont}`}>
           <Pattern
-            imgPath="/images/patterns/pattern-lines.svg"
+            imgPath="images/patterns/pattern-lines.svg"
             imgStyling="lines"
           />
           <Pattern
-            imgPath="/images/patterns/pattern-circle.svg"
+            imgPath="images/patterns/pattern-circle.svg"
             imgStyling="circleTopLeft"
           />
           <Pattern
-            imgPath="/images/patterns/pattern-squiggly-line-top.svg"
+            imgPath="images/patterns/pattern-squiggly-line-top.svg"
             imgStyling="squigglyLineTop"
           />
 
           {/*Coding Conference Logo*/}
           <Image
-            src="/images/logo/logo-full.svg"
+            src="images/logo/logo-full.svg"
             alt="Coding Conference Logo"
             width={209}
             height={30}
@@ -45,11 +45,11 @@ export default function RootLayout({
           <main className={styles.mainCont}>{children}</main>
 
           <Pattern
-            imgPath="/images/patterns/pattern-squiggly-line-bottom-mobile-tablet.svg"
+            imgPath="images/patterns/pattern-squiggly-line-bottom-mobile-tablet.svg"
             imgStyling="squigglyLineBottom"
           />
           <Pattern
-            imgPath="/images/patterns/pattern-squiggly-line-bottom-desktop.svg"
+            imgPath="images/patterns/pattern-squiggly-line-bottom-desktop.svg"
             imgStyling="squigglyLineBottomDesktop"
           />
         </body>

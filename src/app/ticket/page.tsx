@@ -34,7 +34,7 @@ export default function Ticket() {
           <div className={styles.titleCont}>
             {/*Logo*/}
             <Image
-              src="/images/logo/logo-mark.svg"
+              src="images/logo/logo-mark.svg"
               alt=""
               width={40}
               height={40}
@@ -67,7 +67,7 @@ export default function Ticket() {
               {/*GitHub username*/}
               <div className={styles.gitHubCont}>
                 <Image
-                  src="/images/icons/icon-github.svg"
+                  src="images/icons/icon-github.svg"
                   alt=""
                   width={20}
                   height={20}
@@ -83,13 +83,13 @@ export default function Ticket() {
 
         {/*Full circle for mobile/tablet only screens*/}
         <Pattern
-          imgPath="/images/patterns/pattern-circle.svg"
+          imgPath="images/patterns/pattern-circle.svg"
           imgStyling="circleBottomRight"
         />
 
         {/*Half right circle for desktop only screens*/}
         <Pattern
-          imgPath="/images/patterns/pattern-circle.svg"
+          imgPath="images/patterns/pattern-circle.svg"
           imgStyling="circleRightHalf"
         />
       </div>

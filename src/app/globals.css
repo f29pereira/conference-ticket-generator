@@ -36,7 +36,7 @@ body {
 /*Background*/
 .bg {
   position: relative;
-  background-image: url("/images/background/background-mobile.png");
+  background-image: url("/conference-ticket-generator/images/background/background-mobile.png");
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
@@ -77,14 +77,14 @@ button {
 @media (min-width: 48rem /*768px*/) {
   /*Background*/
   .bg {
-    background-image: url("/images/background/background-tablet.png");
+    background-image: url("/conference-ticket-generator/images/background/background-tablet.png");
   }
 }
 
 @media (min-width: 62.5rem /*1000px*/) {
   /*Background*/
   .bg {
-    background-image: url("/images/background/background-desktop.png");
+    background-image: url("/conference-ticket-generator/images/background/background-desktop.png");
   }
 
   label {

@@ -50,7 +50,7 @@
 /*ticket*/
 .ticket {
   position: relative;
-  background-image: url("/images/patterns/pattern-ticket.svg");
+  background-image: url("/conference-ticket-generator/images/patterns/pattern-ticket.svg");
   background-repeat: no-repeat;
   background-size: cover;
   aspect-ratio: 15 / 7;

@@ -143,7 +143,7 @@ export default function Form() {
               <>
                 <div className={styles.uploadIconCont}>
                   <Image
-                    src="/images/icons/icon-upload.svg"
+                    src="images/icons/icon-upload.svg"
                     alt=""
                     width={30}
                     height={30}
@@ -195,7 +195,7 @@ export default function Form() {
           />
 
           <Pattern
-            imgPath="/images/patterns/pattern-circle.svg"
+            imgPath="images/patterns/pattern-circle.svg"
             imgStyling="circleBottomRightForm"
           />
         </div>
