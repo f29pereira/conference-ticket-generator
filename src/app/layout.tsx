@@ -11,6 +11,11 @@ const inconsolata = Inconsolata({
   subsets: ["latin"],
 });
 
+export const metadata: Metadata = {
+  title: "Conference Ticket Generator",
+  description: "Frontend Mentor: Conference Ticket Generator challenge",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
