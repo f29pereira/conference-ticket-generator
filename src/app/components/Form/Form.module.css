@@ -1,0 +1,191 @@
+/*
+CSS Module for Form component
+*/
+
+/*Header container*/
+.headerCont {
+  text-align: center;
+  max-width: 18.75rem; /*300px*/
+  margin: 0 auto;
+}
+
+/*Form title*/
+.title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/*Form text description*/
+.text {
+  color: var(--neutral-300);
+}
+
+/*Form container*/
+.formCont {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 1rem;
+  margin-top: 1rem;
+}
+
+/*input labels*/
+.label {
+  margin: 1rem 0 0.5rem 0;
+}
+
+/*Upload avatar custom input container*/
+.avatarCont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent;
+  border: 1px dashed var(--neutral-300);
+  cursor: pointer;
+  border-radius: 12px;
+  height: 7.1875rem; /*115px*/
+  padding: 1rem 0;
+  margin-top: 0.5rem;
+}
+
+/*When custom avatar input container is hovered or user avatar file exists*/
+.avatarCont:hover,
+.file {
+  background-color: var(--neutral-700);
+}
+
+/*User file name container*/
+.fileNameCont {
+  height: 100%;
+}
+
+/*Upload icon container*/
+.uploadIconCont {
+  display: flex;
+  justify-content: center;
+  background-color: var(--neutral-700);
+  border: 1px solid transparent; /*prevent layout shift on hover*/
+  border-radius: 12px;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.avatarCont:hover > .uploadIconCont {
+  border: 1px solid var(--neutral-500);
+}
+
+/*Upload text*/
+.uploadText {
+  color: var(--neutral-300);
+}
+
+/*Avatar photo input*/
+.avatarInput {
+  display: none; /*Hide default styling*/
+}
+
+/*Full name, Email and GitHub username input fields*/
+.input {
+  background-color: transparent;
+  color: var(--neutral-300);
+  border: 1px solid var(--neutral-500);
+  border-radius: 12px;
+  padding: 0.8rem;
+}
+
+.input:hover {
+  background-color: var(--neutral-700);
+}
+
+.input::placeholder {
+  color: var(--neutral-300);
+}
+
+/*Full name input*/
+.fullNameCont {
+  position: relative;
+  width: 100%;
+}
+
+/*input info or error message container*/
+.inputMsgCont {
+  height: 1.25rem; /*20px*/
+}
+
+/*gitHub username error message container*/
+.gitInputMsgCont {
+  height: 3.125rem; /*50px*/
+}
+
+.inputMsgCont,
+.gitInputMsgCont {
+  margin-top: 0.8rem;
+}
+
+/*input error border*/
+.error {
+  border-color: var(--orange-700);
+}
+
+/*Form submit button*/
+.submitBtn {
+  background-color: var(--orange-500);
+  color: var(--neutral-900);
+  font-weight: 700;
+  border: none;
+  border-bottom: 5px solid var(--orange-500);
+  border-radius: 12px;
+  padding: 1rem 0;
+  margin-top: 0.5rem;
+}
+
+.submitBtn:hover {
+  background-color: var(--orange-700);
+  border-bottom: 5px solid var(--orange-500);
+}
+
+@media (min-width: 62.5rem /*1000px*/) {
+  /*Header container*/
+  .headerCont {
+    max-width: 31.25rem; /*500px*/
+  }
+
+  /*Form title*/
+  .title {
+    font-size: 2.2rem;
+  }
+
+  /*Form container*/
+  .formCont {
+    padding: 0;
+    width: 40%;
+    margin: 2rem auto 0 auto;
+  }
+}
+
+@media (min-width: 87.5rem /*1400px*/) {
+  /*Header container*/
+  .headerCont {
+    max-width: 43.75rem; /*700px*/
+  }
+
+  /*Form container*/
+  .formCont {
+    width: 25%;
+  }
+
+  /*Form title*/
+  .title {
+    font-size: 3rem;
+  }
+
+  /*Form text description*/
+  .text {
+    font-size: 1.2rem;
+  }
+
+  /*Form submit button*/
+  .submitBtn {
+    font-size: 1rem;
+  }
+}
