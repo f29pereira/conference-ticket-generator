@@ -1,0 +1,24 @@
+/*
+* CSS Module for RootLayout component
+*/
+
+/*Image logo*/
+.logoImg {
+  display: block;
+  width: 10rem;
+  height: 2rem;
+  margin: 2rem auto;
+}
+
+/*body container*/
+.bodyCont {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/*main content container*/
+.mainCont {
+  flex: 1;
+  padding-bottom: 5rem;
+}

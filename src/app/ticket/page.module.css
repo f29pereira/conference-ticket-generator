@@ -1,0 +1,230 @@
+/*
+* CSS Module for Ticket component
+*/
+/*page title*/
+.title {
+  font-size: 1.5rem;
+  max-width: 18.75rem; /*300px*/
+  margin: 0 auto;
+}
+
+/*user text*/
+.text {
+  color: var(--neutral-300);
+  font-size: 1.2rem;
+  line-height: 1.2;
+  margin: 1.5rem auto 4rem;
+}
+
+.title,
+.text {
+  text-align: center;
+}
+
+/*user full name gradient*/
+.nameGradient {
+  background: linear-gradient(
+    90deg,
+    var(--orange-500) 11%,
+    var(--neutral-0) 55%
+  );
+  -webkit-background-clip: text; /*for Safari/Chrome*/
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; /*fallback for other browsers */
+  margin-left: 0.5rem;
+}
+
+/*user email*/
+.email {
+  color: var(--orange-500);
+  margin-left: 0.5rem;
+}
+
+/*ticket container*/
+.ticketCont {
+  position: relative;
+  padding: 0 1rem;
+}
+
+/*ticket*/
+.ticket {
+  position: relative;
+  background-image: url("/conference-ticket-generator/images/patterns/pattern-ticket.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  aspect-ratio: 15 / 7;
+  padding: 1.2rem;
+}
+
+/*coding conference ticket logo*/
+.logoImg {
+  width: 25px;
+  height: 25px;
+}
+
+/*ticket title container*/
+.titleCont {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/*ticket conference date and location container*/
+.confLocationCont {
+  color: var(--neutral-300);
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+/*user information container*/
+.userInfoCont {
+  position: absolute;
+  bottom: 1.2rem; /*same padding as .ticket*/
+  display: flex;
+  gap: 1rem;
+}
+
+/*user avatar image */
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+}
+
+/*user full name container, shows ... if full name width is bigger than defined width*/
+.fullNameCont {
+  width: 11.25rem; /*180px*/
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/*gitHub username container*/
+.gitHubCont {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  color: var(--neutral-300);
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+/*ticket code*/
+.ticketCode {
+  position: absolute;
+  bottom: 0;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  text-align: center;
+  color: var(--neutral-500);
+}
+
+.circleBottomRight {
+  position: absolute;
+  z-index: 1;
+  top: 1rem;
+  height: 50px;
+  width: 50px;
+}
+
+@media (min-width: 48rem /*768px*/) {
+  /*ticket container*/
+  .ticketCont {
+    padding: 0;
+  }
+
+  /*ticket*/
+  .ticket {
+    width: 60%;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 62.5rem /*1000px*/) {
+  /*page title*/
+  .title {
+    font-size: 2rem;
+    max-width: 31.25rem; /*500px*/
+  }
+
+  /*user text*/
+  .text {
+    max-width: 28.125rem; /*450px*/
+  }
+
+  /*ticket container*/
+  .ticketCont {
+    width: 25rem; /*400px*/
+    margin: 0 auto;
+  }
+
+  /*ticket*/
+  .ticket {
+    width: 100%;
+  }
+
+  /*ticket title container*/
+  .titleCont {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (min-width: 87.5rem /*1400px*/) {
+  /*page title*/
+  .title {
+    font-size: 3rem;
+    max-width: 43.75rem; /*700px*/
+  }
+
+  /*ticket container*/
+  .ticketCont {
+    width: 34.375rem; /*550px*/
+  }
+
+  /*coding conference ticket logo*/
+  .logoImg {
+    width: 30px;
+    height: 30px;
+  }
+
+  /*coding Conf ticket title*/
+  .codingConfTitle {
+    font-size: 2rem;
+  }
+
+  /*ticket conference date and location container*/
+  .confLocationCont {
+    font-size: 1rem;
+  }
+
+  /*user avatar image */
+  .avatar {
+    width: 65px;
+    height: 65px;
+  }
+
+  /*user full name container, shows ... if full name width is bigger than defined width*/
+  .fullNameCont {
+    width: 17.5rem; /*280px*/
+    font-size: 1.5rem;
+  }
+
+  /*gitHub username container*/
+  .gitHubCont {
+    font-size: 1rem;
+  }
+
+  /*gitHub icon*/
+  .gitHubIcon {
+    width: 25px;
+    height: 25px;
+  }
+
+  /*ticket code*/
+  .ticketCode {
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,8 @@
+/*
+CSS Module for Home component
+*/
+
+.sectionCont {
+  position: relative;
+  z-index: 1;
+}
