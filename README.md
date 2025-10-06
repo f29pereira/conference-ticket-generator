@@ -1,36 +1,135 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Frontend Mentor - Conference ticket generator solution
 
-## Getting Started
+This is a solution to the [Conference ticket generator challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/conference-ticket-generator-oq5gFIU12w).
 
-First, run the development server:
+## Table of contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshots](#screenshots)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+- [Author](#author)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Overview
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### The challenge
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Users should be able to:
 
-## Learn More
+- Complete the form with their details
+- Receive form validation messages if:
+  - Any field is missed
+  - The email address is not formatted correctly
+  - The avatar upload is too big or the wrong image format
+- Complete the form only using their keyboard
+- Have inputs, form field hints, and error messages announced on their screen reader
+- See the generated conference ticket when they successfully submit the form
+- View the optimal layout for the interface depending on their device's screen size
+- See hover and focus states for all interactive elements on the page
 
-To learn more about Next.js, take a look at the following resources:
+### Screenshots
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Filled form with user details:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+![Filled form](public/images/readme/filled_form.png)
 
-## Deploy on Vercel
+- Form validation messages:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  1. **Upload avatar field**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+  - Required
+
+    ![Form avatar field required error message](public/images/readme/error/avatar/required.png)
+
+  - Invalid image type
+
+    ![Form avatar field invalid image type error message](public/images/readme/error/avatar/wrong_type.png)
+
+  - Image bigger than 500KB
+
+    ![Form avatar field invalid image size message](public/images/readme/error/avatar/large_image.png)
+
+  2. **Full name field**
+
+  - Required
+
+    ![Form full name field required error message](public/images/readme/error/fullName/required.png)
+
+  - Invalid
+
+    ![Form full name field invalid error message](public/images/readme/error/fullName/invalid.png)
+
+  3. **Email address field**
+
+  - Required
+
+    ![Form email address field required error message](public/images/readme/error/email/required.png)
+
+  4. **GitHub username field**
+
+  - Required
+
+    ![Form GitHub username field required error message](public/images/readme/error/gitHub/required.png)
+
+  - Invalid
+
+    ![Form GitHub username field invalid error message](public/images/readme/error/gitHub/invalid.png)
+
+- View the optimal layout for the interface depending on their device's screen size:
+
+  1. Mobile layout
+
+  ![Form mobile layout](public/images/readme/layout/form_mobile.png)
+
+  ![Generated ticket mobile layout](public/images/readme/layout/ticket_mobile.png)
+
+  2. Desktop layout
+
+  ![Form desktop layout](public/images/readme/layout/form_desktop.png)
+
+  ![Generated ticket desktop layout](public/images/readme/layout/ticket_desktop.png)
+
+- See hover and focus states for all interactive elements on the page:
+
+  1. Upload Avatar field
+
+  ![Form upload avatar field focus](public/images/readme/focus/avatar.png)
+
+  2. Full name field
+
+  ![Form full name field focus](public/images/readme/focus/full_name.png)
+
+  3. Email field
+
+  ![Form email field focus](public/images/readme/focus/email.png)
+
+  4. GitHub field
+
+  ![Form GitHub field focus](public/images/readme/focus/github.png)
+
+  5. Submit button
+
+  ![Form submit button focus](public/images/readme/focus/button.png)
+
+### Links
+
+- Solution URL: [https://github.com/f29pereira/conference-ticket-generator](https://github.com/f29pereira/conference-ticket-generator)
+- Live Site URL: [f29pereira.github.io/conference-ticket-generator/](f29pereira.github.io/conference-ticket-generator/)
+
+## My process
+
+### Built with
+
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- Mobile-first workflow
+- TypeScript
+- [React](https://reactjs.org/) - JS library
+- [Next.js](https://nextjs.org/) - React framework
+
+## Author
+
+- Frontend Mentor - [@f29pereira](https://www.frontendmentor.io/profile/f29pereira)
