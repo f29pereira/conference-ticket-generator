@@ -8,7 +8,6 @@ This is a solution to the [Conference ticket generator challenge on Frontend Men
   - [The challenge](#the-challenge)
   - [Screenshots](#screenshots)
   - [Links](#links)
-- [My process](#my-process)
   - [Built with](#built-with)
 - [Author](#author)
 
@@ -118,8 +117,6 @@ Users should be able to:
 - Solution URL: [https://github.com/f29pereira/conference-ticket-generator](https://github.com/f29pereira/conference-ticket-generator)
 - Live Site URL: [f29pereira.github.io/conference-ticket-generator/](f29pereira.github.io/conference-ticket-generator/)
 
-## My process
-
 ### Built with
 
 - Semantic HTML5 markup
@@ -129,6 +126,8 @@ Users should be able to:
 - TypeScript
 - [React](https://reactjs.org/) - JS library
 - [Next.js](https://nextjs.org/) - React framework
+- [Jest](https://jestjs.io/) - JS testing library
+- [React Testing Library](https://testing-library.com/) - React components testing library
 
 ## Author
 
