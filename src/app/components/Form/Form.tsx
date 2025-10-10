@@ -134,7 +134,10 @@ export default function Form() {
         >
           Upload Avatar
           {/*Upload avatar custom input*/}
-          <div className={`${styles.avatarCont} ${file ? styles.file : ""}`}>
+          <div
+            data-testid="avatar-container"
+            className={`${styles.avatarCont} ${file ? styles.file : ""}`}
+          >
             {file ? (
               <div className={`flex-center ${styles.fileNameCont}`}>
                 {file.name}
