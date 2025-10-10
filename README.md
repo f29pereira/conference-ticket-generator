@@ -7,6 +7,7 @@ This is a solution to the [Conference ticket generator challenge on Frontend Men
 - [Overview](#overview)
   - [The challenge](#the-challenge)
   - [Screenshots](#screenshots)
+  - [Tests](#tests)
   - [Links](#links)
   - [Built with](#built-with)
 - [Author](#author)
@@ -92,6 +93,30 @@ Users should be able to:
 
 - See hover and focus states for all interactive elements on the page:
 
+  **Hover states**
+
+  1. Upload Avatar field
+
+  ![Form upload avatar hover state](public/images/readme/hover/avatar.png)
+
+  2. Full name field
+
+  ![Form full name hover state](public/images/readme/hover/full_name.png)
+
+  3. Email field
+
+  ![Form email field hover state](public/images/readme/hover/email.png)
+
+  4. GitHub field
+
+  ![Form GitHub field hover state](public/images/readme/hover/github.png)
+
+  5. Submit button
+
+  ![Form submit button focus](public/images/readme/hover/button.png)
+
+  **Focus states**
+
   1. Upload Avatar field
 
   ![Form upload avatar field focus](public/images/readme/focus/avatar.png)
@@ -111,6 +136,17 @@ Users should be able to:
   5. Submit button
 
   ![Form submit button focus](public/images/readme/focus/button.png)
+
+### Tests
+
+**Unit Tests**
+
+- Created tests for functions used for form validation
+- Created test for the Form component elements rendering
+
+**Accessibility Tests**
+
+- Complete the form only using their keyboard
 
 ### Links
 
