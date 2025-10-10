@@ -179,10 +179,11 @@ const isStringEmpty = (strValue: string): boolean => {
  * Validates user full name input value
  *
  * Valid if:
- * - only contains letter characters or spaces
+ * - starts with letter: (?=[A-Za-z])
+ * - only contains letters or spaces: [A-Za-z\s]
  */
-const isFullNameValid = (fullName: string): boolean => {
-  const regex = /^[A-Za-z\s]+$/;
+export const isFullNameValid = (fullName: string): boolean => {
+  const regex = /^(?=[A-Za-z])[A-Za-z\s]+$/;
 
   return regex.test(fullName);
 };
@@ -192,13 +193,13 @@ const isFullNameValid = (fullName: string): boolean => {
  *
  * Valid if:
  * - starts with @ symbol followed by letter (lowercase) or digit: ^@[a-z0-9]
- * - middle chars (max of 38):
+ * - middle chars (max of 37):
  * - lowercase letter or digit: [a-z0-9]
  * - or hyphen followed by letter (lowercase) or digit: |-(?=[a-z0-9])
  * - ends with letter (lowercase) or digit: [a-z0-9]
  */
-const isGitHubUserNameValid = (gitHubUserName: string): boolean => {
-  const regex = /^@[a-z0-9](?:[a-z0-9]|-(?=[a-z0-9])){0,38}[a-z0-9]?$/;
+export const isGitHubUserNameValid = (gitHubUserName: string): boolean => {
+  const regex = /^@[a-z0-9](?:[a-z0-9]|-(?=[a-z0-9])){0,37}[a-z0-9]?$/;
 
   return regex.test(gitHubUserName);
 };
