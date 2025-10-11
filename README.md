@@ -109,7 +109,7 @@ Users should be able to:
 
   4. GitHub field
 
-  ![Form GitHub field hover state](public/images/readme/hover/github.png)
+  ![Form GitHub field hover state](public/images/readme/hover/gitHub.png)
 
   5. Submit button
 
@@ -131,7 +131,7 @@ Users should be able to:
 
   4. GitHub field
 
-  ![Form GitHub field focus](public/images/readme/focus/github.png)
+  ![Form GitHub field focus](public/images/readme/focus/gitHub.png)
 
   5. Submit button
 
