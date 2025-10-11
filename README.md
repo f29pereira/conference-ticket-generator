@@ -141,12 +141,17 @@ Users should be able to:
 
 **Unit Tests**
 
-- Created tests for functions used for form validation
-- Created test for the Form component elements rendering
+This project uses Jest and React Testing Library for unit testing.
+
+They cover:
+
+- Form validation: avatar, full name, email and gitHub username fields
+- Form component rendering: elements and input error messages
+- Ticket component rendering: elements and ticket and user info
 
 **Accessibility Tests**
 
-- Complete the form only using their keyboard
+- Complete the form only using the keyboard
 
 ### Links
 
@@ -164,6 +169,7 @@ Users should be able to:
 - [Next.js](https://nextjs.org/) - React framework
 - [Jest](https://jestjs.io/) - JS testing library
 - [React Testing Library](https://testing-library.com/) - React components testing library
+- [user-event](https://www.npmjs.com/package/@testing-library/user-event) - companion library of React Testing Library
 
 ## Author
 

@@ -2,6 +2,7 @@ import "@testing-library/jest-dom";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import TicketProvider from "@/app/components/providers/TicketProvider";
 import Form from "@/app/components/Form/Form";
+import userEvent from "@testing-library/user-event";
 
 // Mock: Next.js App Router
 jest.mock("next/navigation", () => ({
@@ -65,14 +66,12 @@ describe("Form component", () => {
     expect(submitButton).toBeInTheDocument();
   });
 
-  it("submits successfully when all inputs are valid", () => {
+  it("submits successfully when all inputs are valid", async () => {
     // Fill form data
-    fireEvent.change(avatar, { target: { files: [avatarFile] } });
-    fireEvent.change(fullName, { target: { value: "Jonathan Kristof" } });
-    fireEvent.change(emailAddress, { target: { value: "jonathan@email.com" } });
-    fireEvent.change(gitHubUsername, {
-      target: { value: "@john-doe" },
-    });
+    await userEvent.upload(avatar, avatarFile);
+    await userEvent.type(fullName, "Jonathan Kristof");
+    await userEvent.type(emailAddress, "jonathan@email.com");
+    await userEvent.type(gitHubUsername, "@john-doe");
 
     // Check form field values
     expect((avatar as HTMLInputElement).files?.[0].name).toBe("avatar.png");
@@ -81,20 +80,12 @@ describe("Form component", () => {
     expect(gitHubUsername).toHaveValue("@john-doe");
 
     // Submit form
-    fireEvent.click(submitButton);
+    await userEvent.click(submitButton);
   });
 
-  it("shows required messages when submiting empty inputs", () => {
-    // Fill form data
-    fireEvent.change(avatar, { target: { files: [] } });
-    fireEvent.change(fullName, { target: { value: "" } });
-    fireEvent.change(emailAddress, { target: { value: "" } });
-    fireEvent.change(gitHubUsername, {
-      target: { value: "" },
-    });
-
+  it("shows required messages when submiting empty inputs", async () => {
     // Submit form
-    fireEvent.click(submitButton);
+    await userEvent.click(submitButton);
 
     // Check required field error messages
     expect(
@@ -109,17 +100,15 @@ describe("Form component", () => {
     ).toBeInTheDocument();
   });
 
-  it("shows error message for the full name field when submiting invalid data", () => {
+  it("shows error message for the full name field when submiting invalid data", async () => {
     // Fill form data
-    fireEvent.change(avatar, { target: { files: [avatarFile] } });
-    fireEvent.change(fullName, { target: { value: "Jonathan 123" } }); //invalid full name
-    fireEvent.change(emailAddress, { target: { value: "jonathan@email.com" } });
-    fireEvent.change(gitHubUsername, {
-      target: { value: "@john-doe" },
-    });
+    await userEvent.upload(avatar, avatarFile);
+    await userEvent.type(fullName, "Jonathan 123"); //invalid full name
+    await userEvent.type(emailAddress, "jonathan@email.com");
+    await userEvent.type(gitHubUsername, "@john-doe");
 
     // Submit form
-    fireEvent.click(submitButton);
+    await userEvent.click(submitButton);
 
     // Check error message
     expect(
@@ -127,17 +116,15 @@ describe("Form component", () => {
     ).toBeInTheDocument();
   });
 
-  it("shows error message for the gitHub username field when submiting invalid data", () => {
+  it("shows error message for the gitHub username field when submiting invalid data", async () => {
     // Fill form data
-    fireEvent.change(avatar, { target: { files: [avatarFile] } });
-    fireEvent.change(fullName, { target: { value: "Jonathan Kristof" } });
-    fireEvent.change(emailAddress, { target: { value: "jonathan@email.com" } });
-    fireEvent.change(gitHubUsername, {
-      target: { value: "@" }, //invalid gitHub username
-    });
+    await userEvent.upload(avatar, avatarFile);
+    await userEvent.type(fullName, "Jonathan Kristof");
+    await userEvent.type(emailAddress, "jonathan@email.com");
+    await userEvent.type(gitHubUsername, "@"); //invalid gitHub username
 
     // Submit form
-    fireEvent.click(submitButton);
+    await userEvent.click(submitButton);
 
     // Check error message
     expect(
