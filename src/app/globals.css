@@ -29,6 +29,7 @@ body {
   overflow-x: hidden;
   font-family: var(--font-inconsolata);
   color: var(--neutral-0);
+  background-color: var(--neutral-900);
   -webkit-font-smoothing: antialiased; /*smooths the edges of fonts on Chrome, Safari, Edge*/
   -moz-osx-font-smoothing: grayscale; /*smooths the edges of fonts Firefox on macOS*/
 }

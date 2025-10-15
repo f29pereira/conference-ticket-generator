@@ -109,7 +109,7 @@ Users should be able to:
 
   4. GitHub field
 
-  ![Form GitHub field hover state](public/images/readme/hover/github.png)
+  ![Form GitHub field hover state](public/images/readme/hover/gitHub.png)
 
   5. Submit button
 
@@ -131,7 +131,7 @@ Users should be able to:
 
   4. GitHub field
 
-  ![Form GitHub field focus](public/images/readme/focus/github.png)
+  ![Form GitHub field focus](public/images/readme/focus/gitHub.png)
 
   5. Submit button
 
@@ -141,12 +141,30 @@ Users should be able to:
 
 **Unit Tests**
 
-- Created tests for functions used for form validation
-- Created test for the Form component elements rendering
+This project uses Jest and React Testing Library for unit testing.
+
+They cover:
+
+- Form validation: avatar, full name, email and gitHub username fields
+- Form component rendering: elements and input error messages
+- Ticket component rendering: elements and ticket and user info
 
 **Accessibility Tests**
 
-- Complete the form only using their keyboard
+1. Automated Tests
+
+- Run Lighthouse audits in Chrome and Edge DevTools (100 value score).
+
+2. Manual Tests
+
+- Screen Reader testing with NVDA:
+
+  - Checked that headings (h1, h2, h3) are announced correctly.
+  - Checked that the form description is announced correctly.
+  - Checked that all form labels, inputs, and the submit button are read when focused.
+  - Checked that generated ticket content is announced correctly.
+
+- Completed the form only using the keyboard.
 
 ### Links
 
@@ -164,6 +182,8 @@ Users should be able to:
 - [Next.js](https://nextjs.org/) - React framework
 - [Jest](https://jestjs.io/) - JS testing library
 - [React Testing Library](https://testing-library.com/) - React components testing library
+- [user-event](https://www.npmjs.com/package/@testing-library/user-event) - companion library of React Testing Library
+- [NVDA (NonVisual Desktop Access)](https://www.nvaccess.org/) - open-source screen reader for Windows
 
 ## Author
 
