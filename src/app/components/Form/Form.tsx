@@ -119,12 +119,16 @@ export default function Form() {
           Your Jorney to Coding Conf 2025 Starts Here!
         </h1>
 
-        <p className={styles.text}>
+        <p id="formDescription" className={styles.text}>
           Secure your spot at next year&apos;s biggest coding conference.
         </p>
       </div>
 
-      <form className={styles.formCont} onSubmit={submitForm}>
+      <form
+        className={styles.formCont}
+        onSubmit={submitForm}
+        aria-describedby="formDescription"
+      >
         {/*Upload avatar*/}
         <label
           htmlFor="avatar"
@@ -134,7 +138,10 @@ export default function Form() {
         >
           Upload Avatar
           {/*Upload avatar custom input*/}
-          <div className={`${styles.avatarCont} ${file ? styles.file : ""}`}>
+          <div
+            data-testid="avatar-container"
+            className={`${styles.avatarCont} ${file ? styles.file : ""}`}
+          >
             {file ? (
               <div className={`flex-center ${styles.fileNameCont}`}>
                 {file.name}
