@@ -151,7 +151,20 @@ They cover:
 
 **Accessibility Tests**
 
-- Complete the form only using the keyboard
+1. Automated Tests
+
+- Run Lighthouse audits in Chrome and Edge DevTools (100 value score).
+
+2. Manual Tests
+
+- Screen Reader testing with NVDA:
+
+  - Checked that headings (h1, h2, h3) are announced correctly.
+  - Checked that the form description is announced correctly.
+  - Checked that all form labels, inputs, and the submit button are read when focused.
+  - Checked that generated ticket content is announced correctly.
+
+- Completed the form only using the keyboard.
 
 ### Links
 
@@ -170,6 +183,7 @@ They cover:
 - [Jest](https://jestjs.io/) - JS testing library
 - [React Testing Library](https://testing-library.com/) - React components testing library
 - [user-event](https://www.npmjs.com/package/@testing-library/user-event) - companion library of React Testing Library
+- [NVDA (NonVisual Desktop Access)](https://www.nvaccess.org/) - open-source screen reader for Windows
 
 ## Author
 

@@ -21,15 +21,15 @@ export default function Ticket() {
         ticket is ready.
       </h1>
 
-      <p className={styles.text}>
+      <p className={styles.text} id="ticketDescription">
         We&apos;ve emailed your ticket to <br />
         <span className={styles.email}>{ticket?.email}</span> and will send
         updates in the run up to the event.
       </p>
 
       {/*Ticket*/}
-      <h2 className="sr-only">User Ticket</h2>
-      <div className={styles.ticketCont}>
+      <h2 className="sr-only">Generated User Ticket</h2>
+      <div className={styles.ticketCont} aria-describedby="ticketDescription">
         <div className={styles.ticket}>
           <div className={styles.titleCont}>
             {/*Logo*/}
@@ -42,7 +42,7 @@ export default function Ticket() {
             />
 
             <div className={styles.confIntoCont}>
-              <h2 className={styles.codingConfTitle}>Coding Conf</h2>
+              <h3 className={styles.codingConfTitle}>Coding Conf</h3>
 
               {/*Conference date and location*/}
               <p className={styles.confLocationCont}>{ticket?.confInfo}</p>

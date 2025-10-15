@@ -119,12 +119,16 @@ export default function Form() {
           Your Jorney to Coding Conf 2025 Starts Here!
         </h1>
 
-        <p className={styles.text}>
+        <p id="formDescription" className={styles.text}>
           Secure your spot at next year&apos;s biggest coding conference.
         </p>
       </div>
 
-      <form className={styles.formCont} onSubmit={submitForm}>
+      <form
+        className={styles.formCont}
+        onSubmit={submitForm}
+        aria-describedby="formDescription"
+      >
         {/*Upload avatar*/}
         <label
           htmlFor="avatar"
